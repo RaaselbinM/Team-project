@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Personal Portfolio</title>
+<style>
+/* General styles */
+body {
+font-family: Arial, sans-serif;
+margin: 0;
+padding: 0;
+line-height: 1.6;
+background-color: #f4f4f9;
+color: #333;
+}
+
+header {
+background: #333;
+color: #fff;
+padding: 1rem 0;
+text-align: center;
+}
+
+header h1 {
+margin: 0;
+}
+
+nav ul {
+list-style: none;
+padding: 0;
+display: flex;
+justify-content: center;
+gap: 20px;
+margin: 0;
+}
+
+nav ul li a {
+color: #fff;
+text-decoration: none;
+padding: 0.5rem 1rem;
+transition: background-color 0.3s ease;
+}
+
+nav ul li a:hover {
+background: #575757;
+border-radius: 5px;
+}
+
+.content-section {
+display: none; /* Sections hidden by default */
+padding: 2rem;
+text-align: center;
+}
+
+.content-section.active {
+display: block; /* Show active section */
+}
+
+.profile {
+margin: 1rem auto;
+padding: 1rem;
+background: #fff;
+border: 1px solid #ddd;
+border-radius: 5px;
+max-width: 500px;
+box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+footer {
+background: #333;
+color: #fff;
+text-align: center;
+padding: 1rem 0;
+margin-top: 2rem;
+}
+</style>
+</head>
+<body>
+<header>
+<h1>Welcome to Our Portfolio</h1>
+<nav>
+<ul>
+<li><a href="#home" onclick="showSection('home')">Home</a></li>
+<li><a href="#about" onclick="showSection('about')">About Us</a></li>
+<li><a href="#projects" onclick="showSection('projects')">Projects</a></li>
+<li><a href="#contact" onclick="showSection('contact')">Contact</a></li>
+</ul>
+</nav>
+</header>
+
+<section id="home" class="content-section">
+<h2>Home</h2>
+<p>Welcome to our personal portfolio website!</p>
+<p>We are IT students, specializing in cybersecurity. We love programming, solving problems and creating useful web applications.</p>
+</section>
+
+<section id="about" class="content-section">
+<h2>About Us</h2>
+<div class="profile">
+<h3>Njoud</h3>
+<p>Hobbies: Coding, Reading.</p>
+<p>Skills: HTML, CSS, JavaScript.</p>
+</div>
+<div class="profile">
+<h3>Rasel</h3>
+<p>Hobbies: Writing, Coding.</p>
+<p>Skills: Photoshop, Illustrator, Figma.</p>
+</div>
+<div class="profile">
+<h3>Norah</h3>
+<p>Hobbies: Eating, Swimming.</p>
+<p>Skills: Python, Excel, SQL.</p>
+</div>
+</section>
+
+<section id="projects" class="content-section">
+<h2>Highlighted Projects</h2>
+<div class="profile">
+<h3>Njoud's Project</h3>
+<img src="photo.jpg" alt="Njoud's project photo"/>
+<p>Responsive Web Design - A modern website built with HTML, CSS, and JavaScript.</p>
+<a href="photo.com">View</a>
+</div>
+<div class="profile">
+<h3>Rasel's Project</h3>
+<img src="photo2.jpg" alt="Rasel's project photo"/>
+<p>2D Platformer Game - Developed using Unity and C#.</p>
+<a href="photo2.com">View</a>
+</div>
+<div class="profile">
+<h3>Norah's Project</h3>
+<img src="photo3.jpg" alt="Nourah's project photo" width="180" height="240"/>
+<p>COVID-19 Data Dashboard - Created with Python and Tableau.</p>
+<a href="photo3.com">View</a>
+</div>
+</section>
+
+<section id="contact" class="content-section">
+<h2>Contact Us</h2>
+<form id="contactForm">
+<input type="text" id="name" name="name" placeholder="Name" required><br>
+<input type="email" id="email" name="email" placeholder="Email" required><br>
+<textarea id="message" name="message" placeholder="Message" required></textarea><br>
+<button type="submit">Send</button>
+</form>
+</section>
+
+<footer>
+<p>&copy; 2024 Njoud, Norah, Rasel Project</p>
+</footer>
+
+<script>
+// JavaScript for toggling sections
+function showSection(sectionId) {
+// Hide all sections
+const sections = document.querySelectorAll('.content-section');
+sections.forEach(section => section.classList.remove('active'));
+
+// Show the selected section
+const targetSection = document.getElementById(sectionId);
+if (targetSection) {
+targetSection.classList.add('active');
+}
+}
+
+// Initialize by showing the first section (Home)
+document.addEventListener('DOMContentLoaded', () => {
+showSection('home');
+});
+
+// Handle form submission
+const contactForm = document.getElementById('contactForm');
+if (contactForm) {
+contactForm.addEventListener('submit', function (event) {
+event.preventDefault();
+const name = document.getElementById('name').value;
+alert(`Thank you, ${name}! Your message has been sent.`);
+contactForm.reset();
+});
+}
+</script>
+</body>
+</html>
